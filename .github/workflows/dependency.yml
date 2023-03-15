@@ -5,18 +5,18 @@ jobs:
       runs-on: ubuntu-latest
       name: depecheck_test
       steps:
-      -name: Checkout
+      - name: Checkout
       uses: actions/checkout@v2
-      -name: Build project with Maven
+      - name: Build project with Maven
       run: mvn clean install
-      -name Depcheck
+      - name Depcheck
       uses: dependency-check/Dependency-Check_action@1.0.0
       id: Depcehck
       with:
          project: 'test'
          path: '.'
          format: 'HTML'
-      name: Upload Test results
+      - name: Upload Test results
       uses: aciton/upload-artifact@master
       with:
          name: Depcehck report
