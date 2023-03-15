@@ -1,0 +1,23 @@
+on: [pull_request]
+
+jobs:
+  depchecktest:
+    runs-on: ubuntu-latest
+    name: depecheck_test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build project with Maven
+        run: mvn clean install
+      - name: Depcheck
+        uses: depndency-check/Dependency-Check_actions@1.0.0
+        id: Depcheck
+        with:
+          project: 'test'
+          path: '_'
+          format: 'HTML"
+      - name: Upload Test Results
+        uses: actions/upload-artifact@master
+        with:
+          name: Depcheck report
+          path: ${{github.workspace}}/reports
