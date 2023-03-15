@@ -15,7 +15,7 @@ jobs:
         with:
           project: 'test'
           path: '_'
-          format: 'HTML"
+          format: 'HTML'
       - name: Upload Test Results
         uses: actions/upload-artifact@master
         with:
