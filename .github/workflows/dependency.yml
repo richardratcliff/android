@@ -5,8 +5,8 @@ jobs:
       runs-on: ubuntu-latest
       name: depecheck_test
       steps:
-        - name: Checkout
-        uses: actions/checkout@v2
+         - name: Checkout
+         uses: actions/checkout@v2
         - name: Build project with Maven
         run: mvn clean install
         - name Depcheck
